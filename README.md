@@ -56,7 +56,7 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   [✓] Commit: `Implement add function in Subscriber repository.`
     -   [✓] Commit: `Implement list_all function in Subscriber repository.`
     -   [✓] Commit: `Implement delete function in Subscriber repository.`
-    -   [ ] Write answers of your learning module's "Reflection Publisher-1" questions in this README.
+    -   [✓] Write answers of your learning module's "Reflection Publisher-1" questions in this README.
 -   **STAGE 2: Implement services and controllers**
     -   [ ] Commit: `Create Notification service struct skeleton.`
     -   [ ] Commit: `Implement subscribe function in Notification service.`
@@ -77,6 +77,9 @@ This is the place for you to write reflections:
 ### Mandatory (Publisher) Reflections
 
 #### Reflection Publisher-1
+1. Penggunaan pola desain *observer* tergantung pada penerapannya. Pembuatan *observer* menggunakan `trait` diperlukan apabila *observer* terdiri dari berbagai macam kelas. Namun, *observer* MambangShop yakni Subscriber hanya terdiri dari satu kelas, sehingga penggunaan `trait` tidak diperlukan.
+2. Penggunaan `DashMap` diperlukan karena memberi pemetaan tiap jenis produk kepada tiap *subscriber* yang menginginkan produk tersebut. Jika menggunakan `Vec`, maka perlu terdapat dua `Vec` untuk menyimpan *subscriber* dan URL.
+3. Meskipun pola *singleton* dapat digunakan untuk memastikan hanya ada satu *instance* dari `HashMap` yang dibungkus dengan `Mutex` atau `RwLock` sebagai penerapan keamanan *thread*, pendekatan ini mengunci seluruh peta selama operasi sehingga dapat menyebabkan *bottleneck*. Sebaliknya, `DashMap` membagi data menjadi beberapa *shard* dengan kunci masing-masing yang memungkinkan beberapa *thread* mengakses *shard* yang berbeda secara simultan tanpa saling mengganggu. Oleh karena itu, penggunaan `DashMap` lebih disarankan daripada implementasi pola *singleton*.
 
 #### Reflection Publisher-2
 

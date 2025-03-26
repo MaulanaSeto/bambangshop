@@ -58,12 +58,12 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   [✓] Commit: `Implement delete function in Subscriber repository.`
     -   [✓] Write answers of your learning module's "Reflection Publisher-1" questions in this README.
 -   **STAGE 2: Implement services and controllers**
-    -   [ ] Commit: `Create Notification service struct skeleton.`
-    -   [ ] Commit: `Implement subscribe function in Notification service.`
-    -   [ ] Commit: `Implement subscribe function in Notification controller.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification service.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification controller.`
-    -   [ ] Write answers of your learning module's "Reflection Publisher-2" questions in this README.
+    -   [✓] Commit: `Create Notification service struct skeleton.`
+    -   [✓] Commit: `Implement subscribe function in Notification service.`
+    -   [✓] Commit: `Implement subscribe function in Notification controller.`
+    -   [✓] Commit: `Implement unsubscribe function in Notification service.`
+    -   [✓] Commit: `Implement unsubscribe function in Notification controller.`
+    -   [✓] Write answers of your learning module's "Reflection Publisher-2" questions in this README.
 -   **STAGE 3: Implement notification mechanism**
     -   [ ] Commit: `Implement update method in Subscriber model to send notification HTTP requests.`
     -   [ ] Commit: `Implement notify function in Notification service to notify each Subscriber.`
@@ -82,5 +82,8 @@ This is the place for you to write reflections:
 3. Meskipun pola *singleton* dapat digunakan untuk memastikan hanya ada satu *instance* dari `HashMap` yang dibungkus dengan `Mutex` atau `RwLock` sebagai penerapan keamanan *thread*, pendekatan ini mengunci seluruh peta selama operasi sehingga dapat menyebabkan *bottleneck*. Sebaliknya, `DashMap` membagi data menjadi beberapa *shard* dengan kunci masing-masing yang memungkinkan beberapa *thread* mengakses *shard* yang berbeda secara simultan tanpa saling mengganggu. Oleh karena itu, penggunaan `DashMap` lebih disarankan daripada implementasi pola *singleton*.
 
 #### Reflection Publisher-2
+1. ​Memisahkan Service dan Repository dari Model dalam pola Model-View-Controller (MVC) bertujuan untuk mencapai pemisahan tanggung jawab yang lebih baik dalam aplikasi. Hal ini sesuai dengan Single Responsibility Principle (SRP) dalam SOLID. Repository berfungsi sebagai lapisan abstraksi antara logika bisnis dan akses data yang memungkinkan modul lain untuk berinteraksi dengan sumber data tanpa mengetahui detail implementasinya. Sementara itu, Service menangani logika bisnis dan memastikan bahwa aturan dan proses bisnis terpusat dan mudah dikelola. Dengan memisahkan keduanya, kode menjadi lebih modular, mudah diuji, dan fleksibel terhadap perubahan, seperti mengganti sumber data atau memperbarui logika bisnis tanpa mempengaruhi komponen lain dalam sistem.
+2. ​Jika kita hanya menggunakan Model tanpa memisahkan Service dan Repository, setiap Model seperti Program, Subscriber, dan Notification harus menangani logika bisnis dan akses data secara langsung. Hal ini menyebabkan duplikasi kode dan meningkatkan kompleksitas, karena setiap Model perlu mengelola interaksi dengan sumber data dan menerapkan logika bisnis sendiri. Akibatnya, perubahan pada logika bisnis atau struktur data memerlukan pembaruan di banyak tempat, meningkatkan risiko kesalahan dan menyulitkan pemeliharaan kode.
+3. ​Postman adalah alat penting dalam pengembangan dan pengujian API, membantu memastikan bahwa API berfungsi sesuai harapan sebelum diintegrasikan ke dalam aplikasi. Fitur-fitur seperti Environment Variables memungkinkan pengaturan variabel untuk berbagai lingkungan sehingga memudahkan pengujian di berbagai skenario tanpa perubahan manual. Ada juga fitur Collections yang membantu mengorganisir permintaan API secara terstruktur sehingga memfasilitasi pengelolaan dan berbagi dengan tim.
 
 #### Reflection Publisher-3

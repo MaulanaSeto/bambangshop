@@ -69,7 +69,7 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   [✓] Commit: `Implement notify function in Notification service to notify each Subscriber.`
     -   [✓] Commit: `Implement publish function in Program service and Program controller.`
     -   [✓] Commit: `Edit Product service methods to call notify after create/delete.`
-    -   [ ] Write answers of your learning module's "Reflection Publisher-3" questions in this README.
+    -   [✓] Write answers of your learning module's "Reflection Publisher-3" questions in this README.
 
 ## Your Reflections
 This is the place for you to write reflections:
@@ -87,3 +87,6 @@ This is the place for you to write reflections:
 3. ​Postman adalah alat penting dalam pengembangan dan pengujian API, membantu memastikan bahwa API berfungsi sesuai harapan sebelum diintegrasikan ke dalam aplikasi. Fitur-fitur seperti Environment Variables memungkinkan pengaturan variabel untuk berbagai lingkungan sehingga memudahkan pengujian di berbagai skenario tanpa perubahan manual. Ada juga fitur Collections yang membantu mengorganisir permintaan API secara terstruktur sehingga memfasilitasi pengelolaan dan berbagi dengan tim.
 
 #### Reflection Publisher-3
+1. Pola *observer* yang digunakan pada tutorial ini adalah model Push. NotificationService memanggil fungsi yang akan mengiterasi Subscriber.
+2. Jika kita menggunakan variasi Pull, Publisher tidak perlu menyiman *instance* Subscriber karena Subscriber akan mengambil data notifikasi tersebut. Namun, terdapat kemungkinan terjadinya misinformasi jika Subscriber tidak mengambil data notifikasi.
+3. Jika tidak menggunakan *multi threading*, maka pengiriman notifikasi akan dilakukan secara sekuensial. Hal ini akan berakibat fatal jika jumlah Subscriber sudah terlalu banyak dan Subscriber yang berada di urutan terakhir bisa saja menerima notifikasi dengan selisih waktu yang besar dengan Subscriber yang berada di urutan pertama karena adanya *bottleneck* dan keterbatasan komputasi.
